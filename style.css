@@ -1,0 +1,13 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; margin: 0; padding: 1.5rem; line-height: 1.45; }
+main { max-width: 960px; margin: 0 auto; }
+.notice { border: 1px solid currentColor; padding: .6rem .8rem; border-radius: 6px; }
+.inputs { display: grid; gap: .6rem; margin: 1rem 0; }
+.meta { margin-left: .5rem; opacity: .8; }
+.error { color: #b00020; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+pre { background: rgba(127,127,127,.12); padding: .6rem; border-radius: 6px; overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .85rem; }
+th, td { border: 1px solid rgba(127,127,127,.5); padding: .3rem .5rem; text-align: left; vertical-align: top; }
+tbody tr:nth-child(odd) { background: rgba(127,127,127,.08); }

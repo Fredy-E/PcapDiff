@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pcap-diff — offline USB session compare</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>pcap-diff</h1>
+  <p class="notice"><strong>Experimental concept prototype — idea exploration only.</strong>
+  Parses files locally in your browser; nothing is uploaded. Synthetic fixtures only; no hardware/USB capture claims.</p>
+
+  <section class="inputs">
+    <div>
+      <label for="fileA">Capture A (pcap/pcapng)</label>
+      <input type="file" id="fileA" accept=".pcap,.pcapng,.cap">
+      <span id="metaA" class="meta"></span>
+    </div>
+    <div>
+      <label for="fileB">Capture B (pcap/pcapng)</label>
+      <input type="file" id="fileB" accept=".pcap,.pcapng,.cap">
+      <span id="metaB" class="meta"></span>
+    </div>
+    <button id="compareBtn" disabled>Compare sessions</button>
+    <span id="error" class="error" role="alert"></span>
+  </section>
+
+  <section id="results" hidden>
+    <h2>Session comparison</h2>
+    <div class="grid">
+      <div><h3>Record counts</h3><pre id="counts"></pre></div>
+      <div><h3>Endpoints (USB addr/dev heuristic)</h3><pre id="endpoints"></pre></div>
+      <div><h3>Timing drift</h3><pre id="timing"></pre></div>
+      <div><h3>Payload-length histograms</h3><pre id="hist"></pre></div>
+    </div>
+    <h3>Differing payload windows (first 20)</h3>
+    <table id="diffs">
+      <thead><tr><th>#</th><th>kind</th><th>aLen</th><th>bLen</th><th>byte off</th><th>A preview</th><th>B preview</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <h3>Warnings</h3>
+    <pre id="warnings"></pre>
+  </section>
+</main>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
